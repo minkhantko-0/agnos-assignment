@@ -62,7 +62,7 @@ function HandComponent() {
           <div
             onSelectCapture={(e) => e.stopPropagation()}
             key={area.id + area.finger}
-            className={`cursor-pointer rounded-full border absolute sm:w-${area.size.sm.width} sm:h-${area.size.sm.height} sm:top-[${area.position.sm.top}] sm:left-[${area.position.sm.left}] w-${area.size.default.width} h-${area.size.default.height} top-[${area.position.default.top}] left-[${area.position.default.left}]`}
+            className={`cursor-pointer rounded-full absolute sm:w-${area.size.sm.width} sm:h-${area.size.sm.height} sm:top-[${area.position.sm.top}] sm:left-[${area.position.sm.left}] w-${area.size.default.width} h-${area.size.default.height} top-[${area.position.default.top}] left-[${area.position.default.left}]`}
             onClick={() => handleClick(area.id)}
           />
         ))}
