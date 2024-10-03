@@ -21,14 +21,16 @@ function RootComponent() {
             <PersonStanding color="#60a5fa" />
           </Link>
           |
-          <a href="https://github.com/minkhantko-0/agnos-assignment" target="_blank">
+          <a
+            href="https://github.com/minkhantko-0/agnos-assignment"
+            target="_blank"
+          >
             <Github />
           </a>
         </div>
       </div>
       <hr />
       <Outlet />
-      <TanStackRouterDevtools position="bottom-right" />
     </>
   );
 }
