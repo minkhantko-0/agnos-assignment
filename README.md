@@ -13,9 +13,9 @@ My submission for the assignment given by Agnos.
 ## Contents
 
 - 3 Routes
-  - ``/``
-  - ``/hand``
-  - ``/abs``
+  - `/`
+  - `/hand`
+  - `/abs`
 - Index route represents the home page.
 - Hand route represents page that contains the trivia about the pain around your finger joints.
 - Abs route represents page that contains the trivia about the pain around your abdomen.
@@ -27,7 +27,7 @@ To install and run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/project-name.git
+   git clone https://github.com/minkhantko-0/agnos-assignment.git
    ```
 
 2. Install dependencies:
