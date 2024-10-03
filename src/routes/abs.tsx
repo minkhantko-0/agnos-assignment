@@ -13,7 +13,6 @@ function AbsComponent() {
 
   const handleClick = (areaId: string) => {
     if (selectedAreas.includes(areaId)) {
-      // If already selected, deselect
       if (areaId === "all-over") {
         setSelectedAreas([]);
       } else {
@@ -24,7 +23,6 @@ function AbsComponent() {
         ]);
       }
     } else {
-      // Add to selected areas
       if (areaId === "all-over") {
         setSelectedAreas([...selectableAreas.map((area) => area.id)]);
       } else {
