@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as HandImport } from './routes/hand'
 import { Route as AbsImport } from './routes/abs'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
@@ -26,10 +27,22 @@ const AbsRoute = AbsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const IndexRoute = IndexImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
     '/abs': {
       id: '/abs'
       path: '/abs'
@@ -50,36 +63,41 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/abs': typeof AbsRoute
   '/hand': typeof HandRoute
 }
 
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/abs': typeof AbsRoute
   '/hand': typeof HandRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
+  '/': typeof IndexRoute
   '/abs': typeof AbsRoute
   '/hand': typeof HandRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/abs' | '/hand'
+  fullPaths: '/' | '/abs' | '/hand'
   fileRoutesByTo: FileRoutesByTo
-  to: '/abs' | '/hand'
-  id: '__root__' | '/abs' | '/hand'
+  to: '/' | '/abs' | '/hand'
+  id: '__root__' | '/' | '/abs' | '/hand'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   AbsRoute: typeof AbsRoute
   HandRoute: typeof HandRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   AbsRoute: AbsRoute,
   HandRoute: HandRoute,
 }
@@ -96,9 +114,13 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
+        "/",
         "/abs",
         "/hand"
       ]
+    },
+    "/": {
+      "filePath": "index.tsx"
     },
     "/abs": {
       "filePath": "abs.tsx"
