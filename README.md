@@ -44,6 +44,8 @@ To install and run this project locally, follow these steps:
 
 4. Open your browser and navigate to `http://localhost:3001`.
 
+Alternatively, you can go to this link to see the project in action: https://agnos-assignment-henna.vercel.app/
+
 ## Note
 
 Feel free to point out my shortcomings in the code and suggest improvements.
